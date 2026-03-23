@@ -1,117 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta name="robots" content="noindex">
-  <meta charset="UTF-8">
-  <title>Babetterie 2026</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bitcount+Prop+Single+Ink:wght@100..900&display=swap" rel="stylesheet">
-  <style>
-    * {
-      box-sizing: border-box;
-    }
+<meta name="robots" content="noindex">
+<meta charset="UTF-8">
+<title>Babetterie 2026</title>
 
-    body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      color: white;
-      background: url('background.jpg') no-repeat center center/cover;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+<link href="https://fonts.googleapis.com/css2?family=Bitcount+Prop+Single+Ink:wght@300;400;600&display=swap" rel="stylesheet">
 
-    .container {
-      background: rgba(0, 0, 0, 0.65);
-      padding: 40px;
-      border-radius: 12px;
-      max-width: 600px;
-      width: 90%;
-      text-align: center;
-      backdrop-filter: blur(6px);
-    }
+<style>
+  body {
+    background: black;
+    color: #a0a0c0;
+    font-family: 'Bitcount Prop Single Ink', serif;
+    font-size: 20px;
+    margin: 30px;
+    line-height: 1.4;
+  }
 
-    h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 48px;
-      margin-bottom: 10px;
-    }
+  h1 {
+    font-size: 38px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    color: #c8c8ff;
+    margin-bottom: 20px;
+  }
 
-    .info {
-      margin-bottom: 30px;
-      line-height: 1.6;
-    }
+  a {
+    color: #8f8fff;
+    text-decoration: none;
+  }
 
-    a {
-      color: #ffd166;
-      text-decoration: none;
-    }
+  a:hover {
+    text-decoration: underline;
+  }
 
-    input, select, button {
-      width: 100%;
-      padding: 12px;
-      margin-top: 10px;
-      border-radius: 6px;
-      border: none;
-      font-size: 16px;
-    }
+  input, select, button {
+    background: black;
+    color: #c0c0ff;
+    border: 1px solid #333;
+    font-family: 'Bitcount Prop Single Ink', serif;
+    font-size: 18px;
+    margin-top: 4px;
+  }
 
-    button {
-      background: #ffd166;
-      color: black;
-      font-weight: bold;
-      cursor: pointer;
-      margin-top: 20px;
-    }
+  button {
+    cursor: pointer;
+    margin-top: 10px;
+  }
 
-    button:hover {
-      background: #ffb703;
-    }
-
-    .footer {
-      margin-top: 20px;
-      font-size: 14px;
-      opacity: 0.8;
-    }
-  </style>
+  .section {
+    margin-top: 22px;
+  }
+</style>
 </head>
-  
+
 <body>
-  <div class="container">
-    <h1>BABETTERIE 2026</h1>
-    
-    <div class="info">
-      <p>14-15-16 Aout</p>
-      <p>MUSIC DANCE ATELIERS</p>
-      <p><a href="https://maps.app.goo.gl/4o1uAt9axGkgtMzc7" target"_blank">
-        Location</a> | 
-        <a href="#">Lineup</a></p>
-    </div>
 
-    <form action="https://formspree.io/f/YOUR_ID" method="POST">
-      <input type="text" name="name" placeholder="Your name" required>
+<h1>BABETTERIE 2026</h1>
 
-      <label>Are you coming?</label>
-      <select name="coming">
-        <option>Yes</option>
-        <option>No</option>
-        <option>Maybe</option>
-      </select>
+14-15-16 AOUT<br>
+MUSIC / DANCE / ATELIERS<br>
+<a href="https://maps.app.goo.gl/4o1uAt9axGkgtMzc7" target="_blank">LOCATION</a><br>
+<a href="#">LINEUP</a>
 
-      <label>Do you want to be staff?</label>
-      <select name="staff">
-        <option>No</option>
-        <option>Yes</option>
-      </select>
+<div class="section">
+RSVP<br>
+<form action="https://formspree.io/f/YOUR_ID" method="POST">
+  NAME<br>
+  <input type="text" name="name"><br><br>
 
-      <button type="submit">Send RSVP</button>
-    </form>
+  ARE YOU COMING<br>
+  <select name="coming">
+    <option>YES</option>
+    <option>NO</option>
+    <option>MAYBE</option>
+  </select><br><br>
 
-    <div class="footer">
-      Contact: you@email.com
-    </div>
-  </div>
+  DO YOU WANT TO BE STAFF<br>
+  <select name="staff">
+    <option>NO</option>
+    <option>YES</option>
+  </select><br><br>
+
+  <button type="submit">SEND</button>
+</form>
+</div>
+
+<div class="section">
+CONTACT: you@email.com
+</div>
+
 </body>
 </html>
