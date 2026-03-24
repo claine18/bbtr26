@@ -1,0 +1,120 @@
+
+  body {
+    background: black;
+    color: #a0a0c0;
+    font-family: 'Bitcount Prop Single Ink', serif;
+    font-size: 20px;
+    margin: 30px auto;
+    max-width: 760px;
+    line-height: 1.4;
+    text-align: center;
+  }
+  h1 {
+    font-size: 38px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    color: #c8c8ff;
+    margin-bottom: 20px;
+  }
+
+    h2 {
+    font-size: 45px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    color: #c8c8ff;
+    margin-bottom: 20px;
+  }
+
+
+  a {
+    /* color: #8eff70; */
+    text-decoration: none;
+  }
+
+  a.green {
+  color: #8eff70;                  /* fallback color */
+  -webkit-text-fill-color: #8eff70; /* force font fill in WebKit browsers */
+  text-decoration: none;
+  font-size: 20px;
+  }
+
+  a.green:hover {
+  -webkit-text-fill-color: #aaff99;
+  color: #aaff99;                  /* fallback */
+  text-decoration: underline;
+}
+
+  .big {
+    font-size: 28px;
+    color: #c8c8ff;
+  }
+  
+
+  input, select, button {
+    background: black;
+    color: #c0c0ff;
+    border: 1px solid #333;
+    font-family: 'Bitcount Prop Single Ink', serif;
+    font-size: 18px;
+    margin-top: 4px;
+  }
+
+  button {
+    cursor: pointer;
+    margin-top: 10px;
+  }
+
+
+  /* YES button style */
+  .btn-yes {
+    display: inline-block;
+    background-color: transparent;     /* transparent body so outline shows */
+    color: #c8c8ff;                     /* purple text to match outline */
+    border: 2px solid #c8c8ff;         /* purple outline */
+    padding: 10px 24px;
+    font-size: 18px;
+    font-family: 'Bitcount Prop Single Ink', serif;
+    border-radius: 6px;                /* rectangular with slightly rounded corners */
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color .18s ease, color .18s ease, border-color .18s ease, transform .08s ease;
+    box-shadow: none;
+  }
+
+  .btn-yes:hover,
+  .btn-yes:focus {
+    background-color: #8eff70;         /* green on hover */
+    color: #002200;                    /* dark text for contrast on green */
+    border-color: #8eff70;
+    transform: translateY(-1px);
+  }
+
+  .section {
+    margin-top: 22px;
+  }
+  
+/* container for pages that should be centered on the viewport
+   but have their inner content left-aligned (gutters on both sides) */
+.left-page {
+  margin: 30px auto;      /* center the page container */
+  max-width: 760px;       /* same width as index */
+  text-align: left;       /* left-align content inside */
+  padding: 0 20px;        /* left/right gutters so it matches look of index */
+  box-sizing: border-box;
+}
+
+.lang-toggle {
+  position: fixed;
+  top: 14px;
+  right: 14px;
+  background: transparent;
+  color: #c8c8ff;
+  border: 2px solid #c8c8ff;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-family: 'Bitcount Prop Single Ink', serif;
+  cursor: pointer;
+  z-index: 9999;
+  transition: background-color .18s ease, color .18s ease;
+}
+.lang-toggle:hover { background: #8eff70; color: #002200; border-color: #8eff70; }
