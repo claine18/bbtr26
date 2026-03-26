@@ -1,125 +1,4 @@
 document.addEventListener('DOMContentLoaded', function () {
-  // index page buttons (optional)
-  const yesButton = document.getElementById('yes-button');
-  const noButton = document.getElementById('no-button');
-  if (yesButton) {
-    yesButton.addEventListener('click', function () { window.location.href = 'rsvp.html'; });
-  }
-  if (noButton) {
-    noButton.addEventListener('click', function () { /* keep if you need behavior on index NO */ });
-  }
-
-  // RSVP page behavior
-  var yesBtn = document.getElementById('yesBtn');
-  var noBtn = document.getElementById('noBtn');
-  var nameInput = document.getElementById('name');
-  var rsvpMsg = document.getElementById('rsvpMsg');
-  var noMsg = document.getElementById('noMsg');
-
-  if (yesBtn) {
-    yesBtn.addEventListener('click', function () {
-      var name = nameInput ? nameInput.value.trim() : '';
-      if (!name) {
-        if (rsvpMsg) { rsvpMsg.style.display = 'block'; rsvpMsg.textContent = 'Please enter your name before continuing.'; }
-        return;
-      }
-      localStorage.setItem('rsvp_name', name);
-      localStorage.setItem('rsvp_coming', 'yes');
-      window.location.href = 'details.html';
-    });
-  }
-
-  if (noBtn) {
-    noBtn.addEventListener('click', function () {
-      var name = nameInput ? nameInput.value.trim() : '';
-      if (!name) {
-        if (rsvpMsg) { rsvpMsg.style.display = 'block'; rsvpMsg.textContent = 'Please enter your name before continuing.'; }
-        if (nameInput) nameInput.focus();
-        return;
-      }
-      localStorage.setItem('rsvp_name', name);
-      localStorage.setItem('rsvp_coming', 'no');
-
-      if (rsvpMsg) rsvpMsg.style.display = 'none';
-      if (noMsg) {
-        noMsg.style.display = 'block';
-        noMsg.textContent = ':((( — answer saved!';
-      }
-
-      noBtn.setAttribute('aria-pressed','true');
-      if (yesBtn) yesBtn.disabled = true;
-      noBtn.disabled = true;
-      if (yesBtn) yesBtn.style.opacity = '.6';
-      noBtn.style.opacity = '.6';
-
-      // brief pause so user sees the message, then go to thanks page
-      setTimeout(function () {
-        window.location.href = 'thanks.html';
-      }, 800);
-    });
-  }
-
-  // Details page behavior + Formspree submit
-  var detailsForm = document.getElementById('detailsForm');
-  var welcomeName = document.getElementById('welcomeName');
-  var hiddenName = document.getElementById('hiddenName');
-  var hiddenComing = document.getElementById('hiddenComing');
-  var detailsMsg = document.getElementById('detailsMsg');
-
-//   if (welcomeName) {
-//     var storedName = localStorage.getItem('rsvp_name') || '';
-//     welcomeName.textContent = storedName ? ('Salut ' + storedName + ' — dis-nous:') : 'Quelques questions:';
-//     if (hiddenName) hiddenName.value = storedName;
-//     if (hiddenComing) hiddenComing.value = localStorage.getItem('rsvp_coming') || 'yes';
-//   }
-
-  if (detailsForm) {
-    detailsForm.addEventListener('submit', function (e) {
-      e.preventDefault();
-
-      // populate hidden fields from localStorage
-      var name = localStorage.getItem('rsvp_name') || '';
-      var coming = localStorage.getItem('rsvp_coming') || 'yes';
-      if (hiddenName) hiddenName.value = name;
-      if (hiddenComing) hiddenComing.value = coming;
-
-      // store staff/perform locally as well
-      var staff = document.getElementById('staff') ? document.getElementById('staff').value : '';
-      var perform = document.getElementById('perform') ? document.getElementById('perform').value : '';
-      localStorage.setItem('rsvp_staff', staff);
-      localStorage.setItem('rsvp_perform', perform);
-
-      // collect form data
-      var fd = new FormData(detailsForm);
-
-      // your Formspree form id (already set in file you shared)
-      var url = 'https://formspree.io/f/xjgpbwej';
-
-      fetch(url, {
-        method: 'POST',
-        body: fd,
-        headers: { 'Accept': 'application/json' }
-      }).then(function (res) {
-        if (res.ok) {
-          // successful submit -> thanks page will show "Yayyy"
-          window.location.href = 'thanks.html';
-        } else {
-          return res.json().then(function (data) {
-            throw new Error((data && data.error) || 'Send failed');
-          });
-        }
-      }).catch(function (err) {
-        if (detailsMsg) {
-          detailsMsg.style.display = 'block';
-          detailsMsg.textContent = 'Error sending form — try again later.';
-        }
-        console.error(err);
-      });
-    });
-  }
-});
-
-document.addEventListener('DOMContentLoaded', function () {
   // --- translations ---
   var T = {
     en: {
@@ -141,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
       pleaseEnterName: 'Please enter your name before continuing.',
       savedNo: ':((( — answer saved!',
       savedYes: '🥰🥰🥰🥰🥰 Cant wait !!!!!',
-      staffLabel: '👯‍♀️ Do you want to be staff (help for one week before and 2 days after, discounted tickets and amazing vibes)?',
+      staffLabel: '👯‍♀️ Do you want to be STAFF and help us out for set-up/cleaning for a few days before and after the week-end? Discounted tickets and slay T-shirts',
       performLabel: '🌀 Do you want to perform or make a workshop?',
       submit: 'Submit',
       detailsTitle: 'A few questions',
@@ -167,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function () {
       pleaseEnterName: "Merci d'entrer ton nom avant de continuer.",
       savedNo: ':((( — réponse enregistrée!',
       savedYes: '🥰🥰🥰🥰🥰 Cant wait !!!!!',
-      staffLabel: "👯‍♀️ Veux tu etre membre du STAFF (aider pendant une semaine avant et deux jours après, billets à tarif réduit et beaucoup d'amour!!!) ?",
+      staffLabel: "👯‍♀️ Veux tu etre membre du STAFF et nous aider au montage/rangement avant et aprés le week-end? Ticket à tarifs et T-shirts qui slay ",
       performLabel: "🌀 Souhaites-tu jouer d'un instrument/set ou animer un atelier ?",
       submit: 'Envoyer',
       detailsTitle: 'Quelques questions',
@@ -288,6 +167,21 @@ document.addEventListener('DOMContentLoaded', function () {
       if (yesBtn) yesBtn.style.opacity = '.6';
       noBtn.style.opacity = '.6';
 
+      // POST a quick RSVP (name + coming=no) so "no" answers are recorded in Formspree
+      try {
+        var quickFd2 = new FormData();
+        quickFd2.append('name', name);
+        quickFd2.append('coming', 'no');
+        var quickUrl2 = 'https://formspree.io/f/xjgpbwej';
+        fetch(quickUrl2, {
+          method: 'POST',
+          body: quickFd2,
+          headers: { 'Accept': 'application/json' }
+        }).catch(function (e) { console.error('Quick RSVP send failed', e); });
+      } catch (e) {
+        console.error(e);
+      }
+
       setTimeout(function () {
         window.location.href = 'thanks.html';
       }, 800);
@@ -319,7 +213,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
       // collect form data and POST to Formspree (replace YOUR_ID)
       var fd = new FormData(detailsForm);
-      var url = 'https://formspree.io/f/YOUR_ID'; // replace with your id
+      var url = 'https://formspree.io/f/xjgpbwej'; // Formspree form id
 
       fetch(url, {
         method: 'POST',
