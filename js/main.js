@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
     en: {
       siteTitle: 'BABETTERIE 2026',
       dates: '14-15-16 AUG',
-      tagline: 'In 2026, the BBTR is back to please you. Get ready for three days of DJ sets, live music and the famous workshops.',
+      tagline: 'In 2026, the BBTR makes its come back. Get ready for three days of DJ sets, live music and the famous workshops.',
       locationPrefix: '🧚 We meet in',
       locationPlace: 'Belhade',
       locationHref: 'https://maps.app.goo.gl/4o1uAt9axGkgtMzc7',
