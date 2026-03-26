@@ -118,3 +118,73 @@
   transition: background-color .18s ease, color .18s ease;
 }
 .lang-toggle:hover { background: #8eff70; color: #002200; border-color: #8eff70; }
+
+/* divider style (replaces long dash lines) */
+hr.divider {
+  border: 0;
+  border-top: 1px solid rgba(200,200,255,0.18);
+  margin: 18px 0;
+  height: 1px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* general button styling and responsive spacing */
+button.btn-no {
+  display: inline-block;
+  background-color: transparent;
+  color: #c8c8ff;
+  padding: 10px 20px;
+  font-size: 18px;
+  border-radius: 6px;
+}
+
+button:disabled { opacity: 0.6; cursor: default; }
+
+/* Responsive adjustments for small screens */
+@media (max-width: 600px) {
+  body {
+    font-size: 16px;
+    margin: 12px;
+    max-width: 100%;
+  }
+
+  h1 { font-size: 28px; }
+  h2 { font-size: 34px; }
+
+  .left-page { padding: 0 12px; }
+
+  input[type="text"], select, button {
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 16px;
+    padding: 10px;
+  }
+
+  .options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 8px;
+  }
+
+  .options button { width: 100%; }
+
+  .btn-yes, .btn-no { padding: 12px; }
+
+  /* keep the language toggle visible on small screens */
+  .lang-toggle {
+    top: 8px;
+    right: 8px;
+    padding: 6px 8px;
+    font-size: 14px;
+    z-index: 100000; /* ensure it sits above other elements */
+    display: inline-block;
+  }
+}
+
+/* Slightly larger screens (phablet) */
+@media (min-width: 601px) and (max-width: 900px) {
+  body { font-size: 18px; margin: 18px auto; }
+  .left-page { max-width: 640px; }
+}
